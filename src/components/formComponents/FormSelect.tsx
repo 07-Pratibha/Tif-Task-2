@@ -52,7 +52,11 @@ const FormSelect: React.FC<IFormSelectProps> = ({
         onChange={handleChange}
         onBlur={handleBlur}
         options={options}
+        menuPortalTarget={
+          typeof document !== "undefined" ? document.querySelector("body") : null
+        }
         styles={{
+          menu: (base) => ({ ...base, zIndex: 999, marginTop: "-15px"}),
           container: (base) => ({
             ...base,
             width: "100%",
